@@ -77,6 +77,47 @@ class ProfileSetupActivity : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun afterTextChanged(s: android.text.Editable) {}
         })
+
+        binding.btnConnectApple.setOnClickListener {
+             startProviderLogin("apple.com")
+        }
+        
+        binding.btnConnectFacebook.setOnClickListener {
+             startProviderLogin("facebook.com")
+        }
+    }
+    
+    private fun startProviderLogin(providerId: String) {
+        val auth = com.google.firebase.auth.FirebaseAuth.getInstance()
+        val provider = com.google.firebase.auth.OAuthProvider.newBuilder(providerId)
+        
+        // Custom scopes if needed
+        if (providerId == "facebook.com") {
+            provider.addCustomParameter("display", "popup")
+        }
+        if (providerId == "apple.com") {
+            provider.addCustomParameter("locale", "pt")
+        }
+
+        auth.startActivityForSignInWithProvider(this, provider.build())
+            .addOnSuccessListener { authResult ->
+                // User is signed in.
+                val user = authResult.user
+                if (user != null) {
+                    val name = user.displayName ?: "User ${user.uid.take(4)}"
+                    val dob = "01/01/2000" // Default or fetch if possible (usually not via simple scope)
+                    viewModel.saveProfile(name, dob)
+                    Toast.makeText(this, "Conectado com sucesso!", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .addOnFailureListener { e ->
+                // Handle failure.
+                if (e is com.google.firebase.auth.FirebaseAuthUserCollisionException) {
+                     Toast.makeText(this, "Esta conta já está vinculada.", Toast.LENGTH_LONG).show()
+                } else {
+                     Toast.makeText(this, "Erro ao conectar: ${e.localizedMessage}\nVerifique o console do Firebase.", Toast.LENGTH_LONG).show()
+                }
+            }
     }
 
     private fun setupObservers() {

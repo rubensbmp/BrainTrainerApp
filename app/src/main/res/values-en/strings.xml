@@ -111,6 +111,8 @@
     <string name="social_join_btn">JOIN</string>
     <string name="social_ranking_score">Best age: %d years</string>
     <string name="nav_social_hint">SOCIAL &gt;</string>
+    <string name="daily_limit_title">Daily Limit Reached</string>
+    <string name="daily_limit_message">You can only take one ranked test per day. Try again in %s to update your brain age.</string>
     <string name="game_poker">Poker Hands</string>
     <string name="desc_poker">Identify the best poker hand</string>
     <string name="instr_poker">Identify the BEST possible poker hand by combining hole and community cards.</string>

@@ -27,9 +27,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nome do Grupo"
-        android:textColorHint="#BBBBBB"
-        app:hintTextColor="#FFFFFF"
-        app:boxStrokeColor="#FFFFFF"
+        android:textColorHint="#777777"
+        app:hintTextColor="@color/clash_text_dark"
+        app:boxStrokeColor="@color/clash_text_dark"
         app:boxStrokeWidth="2dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 

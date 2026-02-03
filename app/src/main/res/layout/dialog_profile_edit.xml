@@ -24,8 +24,8 @@
         android:layout_height="wrap_content"
         android:hint="Seu Nome"
         android:textColorHint="#BBBBBB"
-        app:hintTextColor="#FFFFFF"
-        app:boxStrokeColor="#FFFFFF"
+        app:hintTextColor="@color/clash_text_dark"
+        app:boxStrokeColor="@color/clash_text_dark"
         app:boxStrokeWidth="2dp"
         android:layout_marginBottom="24dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">

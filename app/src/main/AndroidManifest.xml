@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:name=".BrainTrainerApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_brain_up"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_brain_up"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BrainTrainerApp"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.ProfileSetupActivity" />
+        <activity android:name=".ui.MainMenuActivity" />
+        <activity android:name=".ui.game.GameActivity" />
+        <activity android:name=".ui.TrainingSelectionActivity" />
+        <activity android:name=".ui.DifficultySelectionActivity" />
+        <activity android:name=".ui.MultiplicationSelectionActivity" />
+    </application>
+
+</manifest>

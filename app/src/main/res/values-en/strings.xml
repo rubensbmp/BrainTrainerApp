@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Brain Up</string>
+    <string name="welcome_title">Welcome</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_music">Music</string>
+    <string name="settings_sfx">Sound Effects</string>
+    <string name="settings_back_hint">Swipe to go back >> </string>
+    
+    <!-- Home -->
+    <string name="daily_test_title">DAILY TEST</string>
+    <string name="daily_test_btn">TAKE EXAM</string>
+    <string name="daily_test_practice">PRACTICE</string>
+    <string name="daily_status_ready">Available now!</string>
+    <string name="daily_status_done">Come back tomorrow!</string>
+    <string name="daily_btn_done">DONE</string>
+    <string name="stats_brain_age">Brain Age</string>
+    <string name="stats_avg_grade">Avg Grade</string>
+    <string name="nav_stats_hint">&lt; HISTORY</string>
+    <string name="nav_training_hint">TRAINING &gt;</string>
+    
+    <!-- Stats -->
+    <string name="stats_header_recent">RECENT HISTORY</string>
+    <string name="clear_history">CLEAR HISTORY</string>
+    <string name="stats_chart_title">EVOLUTION (DAILY TEST)</string>
+    <string name="stats_total_games">Total Games</string>
+    <string name="stats_avg_age">Avg Age</string>
+    
+    <!-- Games -->
+    <string name="game_calc">Simple Calculation</string>
+    <string name="game_logic">Missing Symbol</string>
+    <string name="game_reflex">Greatest Number</string>
+    <string name="game_flags">Flag Quiz</string>
+    <string name="game_map">Map Quiz</string>
+    <string name="game_memory">Number Memory</string>
+    <string name="game_visual">Visual Count</string>
+    <string name="desc_calc">Quick basic math</string>
+    <string name="desc_logic">Find the correct operator</string>
+    <string name="desc_reflex">Reflex and value comparison</string>
+    <string name="desc_flags">Guess the country by flag</string>
+    <string name="desc_map">Recognize the country shape</string>
+    <string name="desc_memory">Memorize the flashing number</string>
+    <string name="desc_visual">Count the red circles</string>
+    <string name="game_daily">Daily Test</string>
+
+    <!-- Instructions -->
+    <string name="instr_intro_title">How to Play</string>
+    <string name="instr_click_start">Tap anywhere to start</string>
+    <string name="instr_calc">Solve the math operations as fast as possible.</string>
+    <string name="instr_logic">Identify the math symbol that correctly completes the equation.</string>
+    <string name="instr_reflex">Several numbers will appear. Click only the HIGHEST one quickly.</string>
+    <string name="instr_flags">Identify the country corresponding to the displayed flag.</string>
+    <string name="instr_map">Identify the highlighted country on the map.</string>
+    <string name="instr_memory">Memorize the number shown briefly and type it afterwards.</string>
+    <string name="instr_visual">Count how many RED BALLS appear on the screen. Ignore other shapes.</string>
+    <string name="instr_daily">You will face 21 mixed challenges. Stay focused and be fast. Difficulty increases with performance!</string>
+
+    <!-- Results & Feedback -->
+    <string name="result_title">Result: %s</string>
+    <string name="result_age">Brain Age: %d</string>
+    <string name="result_btn_back">Back to Menu</string>
+    <string name="feedback_excellent">Excellent performance! Keep it up!</string>
+    <string name="feedback_good">Good job! You are on the right track.</string>
+    <string name="feedback_average">Not bad. Let\'s practice a bit more?</string>
+    <string name="feedback_poor">You can improve. Don\'t give up!</string>
+    <string name="feedback_bad">Beginning is hard, but practice makes perfect.</string>
+    <string name="settings_lang">Language</string>
+    <string name="game_loading">Loading...</string>
+
+    <string name="home_player_label">PLAYER</string>
+    <string name="home_guest_name">Guest</string>
+
+    <string name="stats_matches">MATCHES</string>
+    <string name="stats_evolution_title">EVOLUTION (DAILY TEST)</string>
+    <string name="stats_recent_history">RECENT HISTORY</string>
+    <string name="stats_clear_btn">CLEAR</string>
+    <string name="diff_rounds_label">ROUNDS: %d</string>
+    <string name="diff_flash_label">FLASH TIME: %.1fs</string>
+    <string name="diff_easy">EASY</string>
+    <string name="diff_medium">MEDIUM</string>
+    <string name="diff_hard">HARD</string>
+    <string name="diff_header_difficulty">CHOOSE DIFFICULTY</string>
+    <string name="diff_header_region">CHOOSE REGION</string>
+    <string name="region_world">WORLD</string>
+    <string name="region_americas">AMERICAS</string>
+    <string name="region_europe">EUROPE</string>
+    <string name="region_asia">ASIA</string>
+    <string name="region_africa">AFRICA</string>
+    <string name="region_oceania">OCEANIA</string>
+    <string name="intro_start_btn">START</string>
+    <string name="stats_no_data">Not enough data</string>
+    <string name="profile_welcome">Welcome! Let\'s setup your brain training profile.</string>
+    <string name="profile_hint_name">Name</string>
+    <string name="profile_hint_dob">Date of Birth (DD/MM/YYYY)</string>
+    <string name="profile_btn_start">Start</string>
+    <string name="social_title">SOCIAL</string>
+    <string name="social_login_title">Connect</string>
+    <string name="social_login_desc">Sync your progress and compete with friends in exclusive groups.</string>
+    <string name="social_my_groups">MY GROUPS</string>
+    <string name="social_ranking_title">GROUP RANKING</string>
+    <string name="social_create_group">CREATE GROUP</string>
+    <string name="social_join_group">JOIN GROUP</string>
+    <string name="social_group_name_hint">Group Name</string>
+    <string name="social_group_id_hint">Group ID (Paste here)</string>
+    <string name="social_invite_msg">Join my group on Brain Up! ID: %s</string>
+    <string name="social_limit_reached">Limit of 5 groups reached.</string>
+    <string name="social_years_old">%d years</string>
+    <string name="settings_logout">Sign Out Google Account</string>
+    <string name="social_create_btn">CREATE</string>
+    <string name="social_join_btn">JOIN</string>
+    <string name="social_ranking_score">Best age: %d years</string>
+    <string name="nav_social_hint">SOCIAL &gt;</string>
+</resources>

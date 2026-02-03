@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.braintrainer.app.ui.views.ClashFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootGameItem"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginBottom="12dp"
+    android:layout_marginHorizontal="4dp"
+    android:background="@drawable/bg_clash_button_white"
+    android:backgroundTint="@null"
+    android:paddingStart="24dp"
+    android:paddingEnd="16dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:clickable="false"
+        android:focusable="false">
+
+        <!-- Icon shifted right via parent paddingStart -->
+        <ImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/ic_launcher_foreground"
+            android:clickable="false"
+            android:focusable="false"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp"
+            android:gravity="center_vertical"
+            android:clickable="false"
+            android:focusable="false">
+
+            <com.braintrainer.app.ui.views.ClashTextView
+                android:id="@+id/tvGameName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cálculo Simples"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/clash_text_dark"/>
+            
+            <com.braintrainer.app.ui.views.ClashTextView
+                android:id="@+id/tvGameDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Treine sua matemática básica"
+                android:textSize="11sp"
+                android:textColor="#555555"/>
+        </LinearLayout>
+        
+        <com.braintrainer.app.ui.views.ClashTextView
+            android:id="@+id/tvBestScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_clash_panel"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="Melhor: --"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textColor="@color/clash_text_dark"/>
+
+    </LinearLayout>
+</com.braintrainer.app.ui.views.ClashFrameLayout>

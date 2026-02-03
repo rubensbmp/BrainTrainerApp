@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+    
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    
+    tools:context=".ui.game.GameActivity">
+    <com.braintrainer.app.ui.views.ClashBackgroundView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- HUD / Top Bar -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:weightSum="2"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+        
+        <!-- Timer Container -->
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:background="@drawable/bg_clash_panel"
+            android:padding="8dp">
+
+            <com.braintrainer.app.ui.views.ClashTextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="60s"
+                android:textColor="@color/clash_text_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"/>
+        </FrameLayout>
+
+        <!-- Progress Bar (Simulating Elixir bar maybe?) -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_weight="1.0"
+            android:layout_marginStart="12dp"
+            android:progressDrawable="@drawable/bg_clash_button_yellow" 
+            android:max="60"
+            android:progress="60" />
+            
+        <com.braintrainer.app.ui.views.ClashTextView
+            android:id="@+id/tvRounds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="1/10"
+            android:textColor="@color/clash_text_dark"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/flashContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintBottom_toTopOf="@id/answersGrid"
+        app:layout_constraintVertical_bias="0.4"
+        android:visibility="gone"
+        android:elevation="0dp">
+        
+        <!-- Grid for 4 flash numbers -->
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:layout_gravity="center">
+            
+            <com.braintrainer.app.ui.views.ClashTextView
+                android:id="@+id/tvFlash1"
+                android:layout_width="80dp"
+                android:layout_height="64dp"
+                android:gravity="center"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_clash_panel"
+                android:layout_margin="8dp"
+                android:textColor="@color/clash_text_dark"/>
+             <com.braintrainer.app.ui.views.ClashTextView
+                android:id="@+id/tvFlash2"
+                android:layout_width="80dp"
+                android:layout_height="64dp"
+                android:gravity="center"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_clash_panel"
+                 android:layout_margin="8dp"
+                android:textColor="@color/clash_text_dark"/>
+             <com.braintrainer.app.ui.views.ClashTextView
+                android:id="@+id/tvFlash3"
+                android:layout_width="80dp"
+                android:layout_height="64dp"
+                android:gravity="center"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_clash_panel"
+                 android:layout_margin="8dp"
+                android:textColor="@color/clash_text_dark"/>
+             <com.braintrainer.app.ui.views.ClashTextView
+                android:id="@+id/tvFlash4"
+                android:layout_width="80dp"
+                android:layout_height="64dp"
+                android:gravity="center"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_clash_panel"
+                 android:layout_margin="8dp"
+                android:textColor="@color/clash_text_dark"/>
+        </GridLayout>
+
+
+            
+        <com.braintrainer.app.ui.game.VisualCountView
+            android:id="@+id/visualCountView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_flash_content"
+            android:layout_margin="16dp"
+            android:visibility="gone"/>
+
+        <com.braintrainer.app.ui.views.ClashTextView
+            android:id="@+id/tvFlashCenterLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="64sp"
+            android:textStyle="bold"
+            android:textColor="@color/clash_text_dark"
+            android:visibility="gone" />
+            
+        <LinearLayout
+            android:id="@+id/pokerTableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_flash_content"
+            android:padding="16dp"
+            android:visibility="gone">
+            
+            <com.braintrainer.app.ui.views.ClashTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SUA MÃO"
+                android:textSize="14sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginBottom="4dp"/>
+            
+            <LinearLayout
+                android:id="@+id/llHoleCards"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+                <!-- Hole Cards injected here -->
+            </LinearLayout>
+
+            <com.braintrainer.app.ui.views.ClashTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MESA (FLOP / TURN / RIVER)"
+                android:textSize="14sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginBottom="4dp"/>
+
+            <LinearLayout
+                android:id="@+id/llCommunityCards"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <!-- Community Cards injected here -->
+            </LinearLayout>
+        </LinearLayout>
+        
+
+    </LinearLayout>
+
+    <!-- Main Game Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="16dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintBottom_toTopOf="@id/answersGrid"
+        app:layout_constraintVertical_bias="0.4">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp"
+            android:gravity="center">
+            
+            <com.braintrainer.app.ui.views.ClashTextView
+                android:id="@+id/tvQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/game_loading"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                android:textColor="@color/clash_text_dark"
+                
+                
+                
+                />
+
+            <com.braintrainer.app.ui.views.ClashImageView
+                android:id="@+id/ivQuestionImage"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                tools:src="@drawable/ic_game_map"/>
+        </LinearLayout>        
+    </androidx.cardview.widget.CardView>
+
+    <!-- Answer Area -->
+    <GridLayout
+        android:id="@+id/answersGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:layout_marginBottom="32dp"
+        android:layout_marginHorizontal="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        
+        <com.braintrainer.app.ui.views.ClashButton
+            android:id="@+id/btnOption1"
+            android:layout_width="0dp"
+            android:layout_height="84dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            
+            
+            
+            
+            android:background="@drawable/bg_clash_button_purple"
+            android:backgroundTint="@null"
+            tools:text="12" />
+            
+        <com.braintrainer.app.ui.views.ClashButton
+            android:id="@+id/btnOption2"
+            android:layout_width="0dp"
+            android:layout_height="84dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="22sp"
+             android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            
+            
+            
+            
+            android:background="@drawable/bg_clash_button_purple"
+            android:backgroundTint="@null"
+            tools:text="14" />
+            
+        <com.braintrainer.app.ui.views.ClashButton
+            android:id="@+id/btnOption3"
+            android:layout_width="0dp"
+            android:layout_height="84dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="22sp"
+             android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            
+            
+            
+            
+            android:background="@drawable/bg_clash_button_purple"
+            android:backgroundTint="@null"
+            tools:text="10" />
+
+        <com.braintrainer.app.ui.views.ClashButton
+            android:id="@+id/btnOption4"
+            android:layout_width="0dp"
+            android:layout_height="84dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:textSize="22sp"
+             android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            
+            
+            
+            
+            android:background="@drawable/bg_clash_button_purple"
+            android:backgroundTint="@null"
+            tools:text="8" />
+
+    </GridLayout>
+
+
+    <com.braintrainer.app.ui.views.ClashTextView
+        android:id="@+id/tvFlashCenter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Toque para continuar"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/clash_text_dark"
+        android:background="#00FFFFFF" 
+        android:gravity="center_horizontal|bottom"
+        android:paddingBottom="150dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        android:elevation="19dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Intro Overlay -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clGameIntro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#DD000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        
+        <ImageView
+            android:id="@+id/ivIntroIcon"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_brain_up"
+            app:layout_constraintBottom_toTopOf="@id/tvIntroTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="32dp"/>
+
+        <com.braintrainer.app.ui.views.ClashTextView
+            android:id="@+id/tvIntroTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/instr_intro_title"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@id/tvIntroText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp"/>
+            
+        <com.braintrainer.app.ui.views.ClashTextView
+            android:id="@+id/tvIntroText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="..."
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:layout_marginHorizontal="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+            
+        <com.braintrainer.app.ui.views.ClashTextView
+            android:id="@+id/tvTapToStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/instr_click_start"
+            android:textColor="#FFFF00"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="48dp"
+            app:layout_constraintTop_toBottomOf="@id/tvIntroText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+

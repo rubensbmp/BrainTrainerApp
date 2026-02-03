@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Brain Up</string>
+    <string name="welcome_title">Bienvenue</string>
+    <string name="settings_title">Paramètres</string>
+    <string name="settings_language">Langue</string>
+    <string name="settings_music">Musique</string>
+    <string name="settings_sfx">Effets Sonores</string>
+    <string name="settings_back_hint">Glisser pour retour >> </string>
+    
+    <!-- Home -->
+    <string name="daily_test_title">TEST QUOTIDIEN</string>
+    <string name="daily_test_btn">PASSER L\'EXAMEN</string>
+    <string name="daily_test_practice">S\'ENTRAÎNER</string>
+    <string name="daily_status_ready">Disponible maintenant!</string>
+    <string name="daily_status_done">Revenez demain!</string>
+    <string name="daily_btn_done">TERMINÉ</string>
+    <string name="stats_brain_age">Âge Cérébral</string>
+    <string name="stats_avg_grade">Note Moyenne</string>
+    <string name="nav_stats_hint">&lt; HISTORIQUE</string>
+    <string name="nav_training_hint">ENTRAÎNEMENT &gt;</string>
+    
+    <!-- Stats -->
+    <string name="stats_header_recent">HISTORIQUE RÉCENT</string>
+    <string name="clear_history">EFFACER HISTORIQUE</string>
+    <string name="stats_chart_title">ÉVOLUTION (TEST QUOTIDIEN)</string>
+    <string name="stats_total_games">Jeux Totaux</string>
+    <string name="stats_avg_age">Âge Moyen</string>
+    
+    <!-- Games -->
+    <string name="game_calc">Calcul Simple</string>
+    <string name="game_logic">Symbole Manquant</string>
+    <string name="game_reflex">Plus Grand Nombre</string>
+    <string name="game_flags">Quiz Drapeaux</string>
+    <string name="game_map">Quiz Cartes</string>
+    <string name="game_memory">Mémoire Numérique</string>
+    <string name="game_visual">Comptage Visuel</string>
+    <string name="desc_calc">Calcul rapide</string>
+    <string name="desc_logic">Trouvez l\'opérateur correct</string>
+    <string name="desc_reflex">Réflexe et comparaison</string>
+    <string name="desc_flags">Devinez le pays par le drapeau</string>
+    <string name="desc_map">Reconnaître le pays par la forme</string>
+    <string name="desc_memory">Mémorisez le numéro</string>
+    <string name="desc_visual">Comptez les cercles rouges</string>
+    <string name="game_daily">Test Quotidien</string>
+
+    <!-- Instructions -->
+    <string name="instr_intro_title">Comment Jouer</string>
+    <string name="instr_click_start">Touchez n\'importe où pour commencer</string>
+    <string name="instr_calc">Résolvez les opérations mathématiques aussi vite que possible.</string>
+    <string name="instr_logic">Identifiez le symbole mathématique qui complète correctement l\'équation.</string>
+    <string name="instr_reflex">Plusieurs chiffres apparaîtront. Cliquez seulement sur le PLUS GRAND rapidement.</string>
+    <string name="instr_flags">Identifiez le pays correspondant au drapeau affiché.</string>
+    <string name="instr_map">Identifiez le pays mis en évidence sur la carte.</string>
+    <string name="instr_memory">Mémorisez le nombre affiché brièvement et tapez-le ensuite.</string>
+    <string name="instr_visual">Comptez combien de BALLES ROUGES apparaissent à l\'écran. Ignorez les autres formes.</string>
+    <string name="instr_daily">Vous affronterez 21 défis mixtes. Restez concentré et soyez rapide. La difficulté augmentera selon vos performances !</string>
+
+    <!-- Results & Feedback -->
+    <string name="result_title">Résultat : %s</string>
+    <string name="result_age">Âge Cérébral : %d</string>
+    <string name="result_btn_back">Retour au Menu</string>
+    <string name="feedback_excellent">Excellente performance ! Continuez comme ça !</string>
+    <string name="feedback_good">Bon travail ! Vous êtes sur la bonne voie.</string>
+    <string name="feedback_average">Pas mal. On s\'entraîne encore un peu ?</string>
+    <string name="feedback_poor">Vous pouvez vous améliorer. N\'abandonnez pas !</string>
+    <string name="feedback_bad">Le début est difficile, mais la pratique mène à la perfection.</string>
+    <string name="settings_lang">Langue</string>
+    <string name="game_loading">Chargement...</string>
+
+    <string name="home_player_label">JOUEUR</string>
+    <string name="home_guest_name">Invité</string>
+
+    <string name="stats_matches">MATCHES</string>
+    <string name="stats_evolution_title">ÉVOLUTION (TEST QUOTIDIEN)</string>
+    <string name="stats_recent_history">HISTORIQUE RÉCENT</string>
+    <string name="stats_clear_btn">EFFACER</string>
+    <string name="diff_rounds_label">TOURS : %d</string>
+    <string name="diff_flash_label">TEMPS DE FLASH : %.1fs</string>
+    <string name="diff_easy">FACILE</string>
+    <string name="diff_medium">MOYEN</string>
+    <string name="diff_hard">DIFFICILE</string>
+    <string name="diff_header_difficulty">CHOISIR LA DIFFICULTÉ</string>
+    <string name="diff_header_region">CHOISIR LA RÉGION</string>
+    <string name="region_world">MONDE</string>
+    <string name="region_americas">AMÉRIQUES</string>
+    <string name="region_europe">EUROPE</string>
+    <string name="region_asia">ASIE</string>
+    <string name="region_africa">AFRIQUE</string>
+    <string name="region_oceania">OCÉANIE</string>
+    <string name="intro_start_btn">COMMENCER</string>
+    <string name="stats_no_data">Pas assez de données</string>
+    <string name="profile_welcome">Bienvenue ! Configurons votre profil d\'entraînement cérébral.</string>
+    <string name="profile_hint_name">Nom</string>
+    <string name="profile_hint_dob">Date de naissance (JJ/MM/AAAA)</string>
+    <string name="profile_btn_start">Démarrer</string>
+    <string name="social_title">SOCIAL</string>
+    <string name="social_login_title">Connexion</string>
+    <string name="social_login_desc">Synchronisez vos progrès et rivalisez com amis em grupos exclusivos.</string>
+    <string name="social_my_groups">MES GROUPES</string>
+    <string name="social_ranking_title">CLASSEMENT DU GROUPE</string>
+    <string name="social_create_group">CRÉER UN GROUPE</string>
+    <string name="social_join_group">REJOINDRE UN GROUPE</string>
+    <string name="social_group_name_hint">Nom du groupe</string>
+    <string name="social_group_id_hint">ID do Grupo (Coller aqui)</string>
+    <string name="social_invite_msg">Rejoignez mon groupe sur Brain Up ! ID : %s</string>
+    <string name="social_limit_reached">Limite de 5 groupes atteinte.</string>
+    <string name="social_years_old">%d ans</string>
+    <string name="settings_logout">Se déconnecter de Google</string>
+    <string name="social_create_btn">CRÉER</string>
+    <string name="social_join_btn">REJOINDRE</string>
+    <string name="social_ranking_score">Meilleur âge: %d ans</string>
+    <string name="nav_social_hint">SOCIAL &gt;</string>
+</resources>

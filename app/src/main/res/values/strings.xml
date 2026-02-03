@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Brain Up</string>
+    <string name="welcome_title">Bem-vindo</string>
+    <string name="settings_title">Configurações</string>
+    <string name="settings_language">Idioma</string>
+    <string name="settings_music">Música</string>
+    <string name="settings_sfx">Efeitos Sonoros</string>
+    <string name="settings_back_hint">Arraste para voltar >> </string>
+    
+    <!-- Home -->
+    <string name="daily_test_title">TESTE DIÁRIO</string>
+    <string name="daily_test_btn">REALIZAR EXAME</string>
+    <string name="daily_test_practice">PRATICAR</string>
+    <string name="daily_status_ready">Disponível agora!</string>
+    <string name="daily_status_done">Volte amanhã!</string>
+    <string name="daily_btn_done">CONCLUÍDO</string>
+    <string name="stats_brain_age">Idade Cerebral</string>
+    <string name="stats_avg_grade">Nota Média</string>
+    <string name="nav_stats_hint">&lt; HISTÓRICO</string>
+    <string name="nav_training_hint">TREINO &gt;</string>
+    
+    <!-- Stats -->
+    <string name="stats_header_recent">HISTÓRICO RECENTE</string>
+    <string name="clear_history">LIMPAR HISTÓRICO</string>
+    <string name="stats_chart_title">EVOLUÇÃO (TESTE DIÁRIO)</string>
+    <string name="stats_total_games">Jogos Totais</string>
+    <string name="stats_avg_age">Média Idade</string>
+    
+    <!-- Games -->
+    <string name="game_calc">Cálculo Simples</string>
+    <string name="game_logic">Símbolo Faltando</string>
+    <string name="game_reflex">Maior Número</string>
+    <string name="game_flags">Bandeiras</string>
+    <string name="game_map">Mapas</string>
+    <string name="game_memory">Memória Numérica</string>
+    <string name="game_visual">Contagem Visual</string>
+    <string name="desc_calc">Matemática básica rápida</string>
+    <string name="desc_logic">Descubra o operador correto</string>
+    <string name="desc_reflex">Reflexo e comparação de valores</string>
+    <string name="desc_flags">Adivinhe o país pela bandeira</string>
+    <string name="desc_map">Reconheça o país pelo formato</string>
+    <string name="desc_memory">Memorize o número que pisca</string>
+    <string name="desc_visual">Conte as bolas de basquete</string>
+    <string name="game_daily">Teste Diário</string>
+    
+    <!-- Instructions -->
+    <string name="instr_intro_title">Como Jogar</string>
+    <string name="instr_click_start">Toque em qualquer lugar para começar</string>
+    <string name="instr_calc">Resolva as operações matemáticas o mais rápido possível.</string>
+    <string name="instr_logic">Identifique o símbolo matemático que completa a equação corretamente.</string>
+    <string name="instr_reflex">Vários números aparecerão. Clique apenas no MAIOR deles rapidamente.</string>
+    <string name="instr_flags">Identifique o país correspondente à bandeira exibida.</string>
+    <string name="instr_map">Identifique o país destacado no mapa.</string>
+    <string name="instr_memory">Memorize o número que será exibido por um breve momento e selecione-o em seguida entre as opções exibidas.</string>
+    <string name="instr_visual">Conte quantas BOLAS DE BASQUETE aparecem na tela. Ignore os outros objetos.</string>
+    <string name="instr_daily">Você enfrentará uma bateria de 32 desafios mistos. Mantenha o foco e seja rápido. A dificuldade aumentará conforme seu desempenho!</string>
+    
+    <!-- Results & Feedback -->
+    <string name="result_title">Resultado: %s</string>
+    <string name="result_age">Idade Cerebral: %d</string>
+    <string name="result_btn_back">Voltar ao Menu</string>
+    <string name="feedback_excellent">Excelente desempenho! Continue assim!</string>
+    <string name="feedback_good">Bom trabalho! Você está no caminho certo.</string>
+    <string name="feedback_average">Nada mal. Vamos praticar mais um pouco?</string>
+    <string name="feedback_poor">Você consegue melhorar. Não desista!</string>
+    <string name="feedback_bad">O início é difícil, mas a prática leva à perfeição.</string>
+    <string name="game_loading">Carregando...</string>
+    <string name="settings_lang">Idioma</string>
+
+    <string name="home_player_label">JOGADOR</string>
+    <string name="home_guest_name">Convidado</string>
+
+    <string name="stats_matches">PARTIDAS</string>
+    <string name="stats_evolution_title">EVOLUÇÃO (TESTE DIÁRIO)</string>
+    <string name="stats_recent_history">HISTÓRICO RECENTE</string>
+    <string name="stats_clear_btn">LIMPAR</string>
+    <string name="diff_rounds_label">RODADAS: %d</string>
+    <string name="diff_flash_label">TEMPO DE FLASH: %.1fs</string>
+    <string name="diff_easy">FÁCIL</string>
+    <string name="diff_medium">MÉDIO</string>
+    <string name="diff_hard">DIFÍCIL</string>
+    <string name="diff_header_difficulty">NÍVEL DE DIFICULDADE</string>
+    <string name="diff_header_region">ESCOLHA A REGIÃO</string>
+    <string name="region_world">MUNDO</string>
+    <string name="region_americas">AMÉRICAS</string>
+    <string name="region_europe">EUROPA</string>
+    <string name="region_asia">ÁSIA</string>
+    <string name="region_africa">ÁFRICA</string>
+    <string name="region_oceania">OCEANIA</string>
+    <string name="intro_start_btn">COMEÇAR</string>
+    <string name="stats_no_data">Sem dados suficientes</string>
+    <string name="profile_welcome">Bem-vindo! Vamos configurar seu perfil de treino cerebral.</string>
+    <string name="profile_hint_name">Nome</string>
+    <string name="profile_hint_dob">Data de Nascimento (DD/MM/AAAA)</string>
+    <string name="profile_btn_start">Começar</string>
+    <string name="social_title">SOCIAL</string>
+    <string name="social_login_title">Conecte-se</string>
+    <string name="social_login_desc">Sincronize seu progresso e compita com amigos em grupos exclusivos.</string>
+    <string name="social_my_groups">MEUS GRUPOS</string>
+    <string name="social_ranking_title">RANKING DO GRUPO</string>
+    <string name="social_create_group">CRIAR GRUPO</string>
+    <string name="social_join_group">ENTRAR EM GRUPO</string>
+    <string name="social_group_name_hint">Nome do Grupo</string>
+    <string name="social_group_id_hint">ID do Grupo (Cole aqui)</string>
+    <string name="social_invite_msg">Entre no meu grupo no Brain Up! ID: %s</string>
+    <string name="social_limit_reached">Limite de 5 grupos atingido.</string>
+    <string name="social_years_old">%d anos</string>
+    <string name="nav_social_hint">SOCIAL &gt;</string>
+    <string name="settings_logout">Sair da Conta Google</string>
+    <string name="social_create_btn">CRIAR</string>
+    <string name="social_join_btn">ENTRAR</string>
+    <string name="social_ranking_score">Melhor idade: %d anos</string>
+    <string name="dialog_confirm_title">Tem certeza?</string>
+    <string name="dialog_confirm_clear_history">Isso apagará todo o seu progresso local. Esta ação não pode ser desfeita.</string>
+    <string name="dialog_confirm_logout">Você será desconectado da sua conta Google.</string>
+    <string name="dialog_btn_yes">Sim</string>
+    <string name="dialog_btn_ok">OK</string>
+    <string name="dialog_btn_cancel">Cancelar</string>
+    <string name="game_multiplication">Tabuada</string>
+    <string name="instr_multiplication">Selecione o resultado correto da multiplicação.</string>
+    <string name="desc_multiplication">Pratique a tabuada.</string>
+    <string name="dialog_multiplication_title">Configurar Tabuada</string>
+    <string name="dialog_multiplication_table">Tabuada do:</string>
+    <string name="dialog_multiplication_rounds">Rodadas:</string>
+    <string name="settings_about">Sobre</string>
+    <string name="dialog_about_title">Sobre o Brain Up</string>
+    <string name="dialog_about_message">Brain Up é um conjunto de mini-jogos projetados para desafiar e melhorar suas habilidades cognitivas, como memória, foco e raciocínio lógico. O grande objetivo é atingir a idade cerebral de 20 anos, que representa o desempenho máximo e ideal.\n\nCriado por: Rubens Bampa\nContato: rubensbmp@icloud.com\n\nDesign:\nMapas e ícones fornecidos por Flaticon (https://www.flaticon.com/br)</string>
+    <string name="daily_limit_title">Limite Diário Atingido</string>
+    <string name="daily_limit_message">Você só pode realizar um teste ranqueado por dia. Tente novamente em %s para atualizar sua idade cerebral.</string>
+    <!-- Poker Game -->
+    <string name="game_poker">Poker Hand</string>
+    <string name="desc_poker">Identifique a melhor mão de poker</string>
+    <string name="instr_poker">Identifique a MELHOR mão de poker possível combinando as cartas da mão e da mesa.</string>
+    <string name="diff_poker_speed">VELOCIDADE DE REVELAÇÃO: %.1fs</string>
+</resources>

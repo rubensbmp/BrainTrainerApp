@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_clash_panel"
+    android:padding="24dp"
+    android:gravity="center">
+
+    <com.braintrainer.app.ui.views.ClashTextView
+        android:id="@+id/tvResultGrade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A+"
+        android:textSize="64sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"/>
+
+    <com.braintrainer.app.ui.views.ClashTextView
+        android:id="@+id/tvResultAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Idade Cerebral: 20 anos"
+        android:textSize="20sp"
+        android:layout_marginTop="8dp"
+        android:textColor="#FFFFFF"/>
+
+    <com.braintrainer.app.ui.views.ClashTextView
+        android:id="@+id/tvResultFeedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Excelente Trabalho!"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:textColor="#FFFFFF"/>
+
+    <com.braintrainer.app.ui.views.ClashButton
+        android:id="@+id/btnResultBack"
+        android:layout_width="160dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/result_btn_back"
+        android:background="@drawable/bg_clash_button_purple"/>
+
+</LinearLayout>
+

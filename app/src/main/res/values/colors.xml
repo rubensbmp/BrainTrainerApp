@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Clash Royale Inspired Palette -->
+    <color name="clash_bg_blue">#3D7EAA</color>
+    <color name="clash_bg_blue_dark">#1C3E5E</color>
+    <color name="clash_blue_dark">#1C3E5E</color>
+    
+    <color name="clash_yellow_main">#FDC537</color>
+    <color name="clash_yellow_shadow">#F79C1B</color>
+    <color name="clash_yellow_text_shadow">#804000</color>
+
+    <color name="clash_blue_btn_main">#4C91E2</color>
+    <color name="clash_blue_btn_shadow">#1C5D99</color>
+    
+    <color name="clash_red_btn_main">#FF5555</color>
+    
+    <color name="clash_panel_bg">#F2F2F2</color>
+    <color name="clash_border_grey">#9E9E9E</color>
+    
+    <color name="clash_text_dark">#FFFFFF</color>
+</resources>

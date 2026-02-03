@@ -13,7 +13,7 @@ object DialogHelper {
         context: Context,
         title: String,
         message: String,
-        positiveText: String = "OK",
+        positiveText: String? = null,
         negativeText: String? = null,
         onPositive: (() -> Unit)? = null,
         onNegative: (() -> Unit)? = null
@@ -28,7 +28,7 @@ object DialogHelper {
         binding.tvDialogTitle.text = title
         binding.tvDialogMessage.text = message
         
-        binding.btnPositive.text = positiveText
+        binding.btnPositive.text = positiveText ?: context.getString(R.string.dialog_btn_ok)
         binding.btnPositive.setOnClickListener {
             onPositive?.invoke()
             dialog.dismiss()

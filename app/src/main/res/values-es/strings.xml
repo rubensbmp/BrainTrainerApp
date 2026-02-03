@@ -103,7 +103,7 @@
     <string name="social_join_group">UNIRSE AL GRUPO</string>
     <string name="social_group_name_hint">Nombre del Grupo</string>
     <string name="social_group_id_hint">ID del Grupo (Pegue aquí)</string>
-    <string name="social_invite_msg">¡Únete a mi grupo en Brain Up! ID: %s</string>
+    <string name="social_invite_msg">¡Ven a competir conmigo en Brain Up! Únete a mi grupo con el código: %s</string>
     <string name="social_limit_reached">Límite de 5 grupos alcanzado.</string>
     <string name="social_years_old">%d años</string>
     <string name="settings_logout">Cerrar sesión de Google</string>
@@ -115,6 +115,7 @@
     <string name="desc_poker">Identifica la mejor mano de poker</string>
     <string name="instr_poker">Identifica la MEJOR mano de poker posible combinando las cartas de la mano y de la mesa.</string>
     <string name="poker_question_best_hand">¿Cuál es la mejor mano?</string>
+    <string name="dialog_about_message">Brain Up es una colección de minijuegos diseñados para desafiar y mejorar tus habilidades cognitivas, como la memoria, la concentración y la lógica. El objetivo principal es alcanzar la edad cerebral de 20 años, que representa el rendimiento máximo e ideal.\n\nCreado por: Rubens Bampa\nContacto: rubensbmp@icloud.com\n\nDiseño:\nMapas e iconos proporcionados por Flaticon (https://www.flaticon.com/br)</string>
     <string name="poker_touch_to_continue">Toca para continuar</string>
     <string name="poker_hand_royal_flush">Escaleira Real</string>
     <string name="poker_hand_straight_flush">Escaleira de Color</string>
@@ -126,4 +127,31 @@
     <string name="poker_hand_two_pair">Dobles Parejas</string>
     <string name="poker_hand_pair">Pareja</string>
     <string name="poker_hand_high_card">Carta Alta</string>
+
+    <!-- Dynamic Strings -->
+    <string name="game_question_greatest">¿Cuál es el mayor?</string>
+    <string name="game_memory_question">¿Cuál era el número?</string>
+    <string name="game_visual_question">¿Cuántos círculos rojos?</string>
+
+    <!-- Notification & Reminder -->
+    <string name="reminder_on">Recordatorio Diario: ON</string>
+    <string name="reminder_off">Recordatorio Diario: OFF</string>
+    <string name="reminder_scheduled">¡Recordatorio programado para las 10:00!</string>
+    <string name="reminder_canceled">Recordatorio cancelado.</string>
+    <string name="notification_channel_name">daily_reminder</string>
+    <string name="notification_channel_desc">Recordatorio para entrenar tu cerebro</string>
+    <string name="notification_title">Brain Up</string>
+    <string name="notification_content">¡Es hora de tu entrenamiento cerebral diario!</string>
+    <string name="best_score_format">Mejor: %d años</string>
+
+    <!-- Errors & Toasts -->
+    <string name="login_failed">Error de inicio de sesión: %s</string>
+    <string name="id_copied">ID copiado: %s</string>
+    <string name="firebase_error">Error de Firebase: %s</string>
+    <string name="permission_exact_alarm">Se necesita permiso para alarmas exactas.</string>
+
+    <!-- Settings & Dialogs -->
+    <string name="settings_about">Acerca de</string>
+    <string name="dialog_btn_ok">OK</string>
+    <string name="settings_track">Pista</string>
 </resources>

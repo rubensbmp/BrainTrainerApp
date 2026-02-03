@@ -182,9 +182,7 @@ class GameActivity : AppCompatActivity() {
             }
             
             // Redundant text set if not image, but handled above
-            if (question.imageRes == null) {
-                binding.tvQuestion.text = question.displayContent
-            }
+
         }
         
         viewModel.roundsInfo.observe(this) { info ->
@@ -472,6 +470,18 @@ class GameActivity : AppCompatActivity() {
     private fun resolveString(key: String): String {
         // Optimization: If key contains spaces or starts with a digit, it's not a resource name
         if (key.contains(" ") || key.firstOrNull()?.isDigit() == true) return key
+
+        // Specific fix for dynamic game keys where getIdentifier might fail or packaging is tricky
+        val manualMap = mapOf(
+             "game_question_greatest" to R.string.game_question_greatest,
+             "game_memory_question" to R.string.game_memory_question,
+             "game_visual_question" to R.string.game_visual_question,
+             "poker_question_best_hand" to R.string.poker_question_best_hand
+        )
+        
+        if (manualMap.containsKey(key)) {
+            return getString(manualMap[key]!!)
+        }
         
         return try {
             val resId = resources.getIdentifier(key, "string", packageName)

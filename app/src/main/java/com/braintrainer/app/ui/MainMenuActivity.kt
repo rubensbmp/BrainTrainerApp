@@ -9,6 +9,16 @@ import com.braintrainer.app.databinding.ActivityMainMenuBinding
 class MainMenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainMenuBinding
 
+    companion object {
+        var isLanguageChanging = false
+
+        fun start(context: Context) {
+            val intent = Intent(context, MainMenuActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            context.startActivity(intent)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
@@ -19,6 +29,47 @@ class MainMenuActivity : AppCompatActivity() {
         // Initialize Audio Settings
         com.braintrainer.app.util.MusicManager.loadPreferences(this)
         com.braintrainer.app.util.MusicManager.initSFX(this)
+
+        if (isLanguageChanging) {
+            playCurtainOpenAnimation()
+        }
+    }
+
+    fun animateLanguageChange(onReadyToChange: () -> Unit) {
+        val curtain = findViewById<android.view.View>(com.braintrainer.app.R.id.viewCurtain)
+        curtain.visibility = android.view.View.VISIBLE
+        // Start from top-left (defined in XML)
+        
+        curtain.animate()
+            .translationX(0f)
+            .translationY(0f)
+            .setDuration(400)
+            .setInterpolator(android.view.animation.AccelerateDecelerateInterpolator())
+            .withEndAction {
+                isLanguageChanging = true
+                onReadyToChange()
+            }
+            .start()
+    }
+
+    private fun playCurtainOpenAnimation() {
+        val curtain = findViewById<android.view.View>(com.braintrainer.app.R.id.viewCurtain)
+        curtain.visibility = android.view.View.VISIBLE
+        curtain.translationX = 0f
+        curtain.translationY = 0f
+        
+        // Animate to bottom-right
+        curtain.animate()
+            .translationX(2500f * resources.displayMetrics.density)
+            .translationY(2500f * resources.displayMetrics.density)
+            .setDuration(600) // Slower open for dramatic effect
+            .setStartDelay(100)
+            .setInterpolator(android.view.animation.AccelerateInterpolator())
+            .withEndAction {
+                curtain.visibility = android.view.View.GONE
+                isLanguageChanging = false
+            }
+            .start()
     }
 
     override fun onResume() {
@@ -52,14 +103,6 @@ class MainMenuActivity : AppCompatActivity() {
                 4 -> com.braintrainer.app.ui.fragments.SocialFragment()
                 else -> com.braintrainer.app.ui.fragments.HomeFragment()
             }
-        }
-    }
-
-    companion object {
-        fun start(context: Context) {
-            val intent = Intent(context, MainMenuActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            context.startActivity(intent)
         }
     }
 }

@@ -103,7 +103,7 @@
     <string name="social_join_group">ENTRAR EM GRUPO</string>
     <string name="social_group_name_hint">Nome do Grupo</string>
     <string name="social_group_id_hint">ID do Grupo (Cole aqui)</string>
-    <string name="social_invite_msg">Entre no meu grupo no Brain Up! ID: %s</string>
+    <string name="social_invite_msg">Venha competir comigo no Brain Up! Entre no meu grupo com o código: %s</string>
     <string name="social_limit_reached">Limite de 5 grupos atingido.</string>
     <string name="social_years_old">%d anos</string>
     <string name="nav_social_hint">SOCIAL &gt;</string>
@@ -152,4 +152,29 @@
     <string name="poker_hand_two_pair">Dois Pares</string>
     <string name="poker_hand_pair">Um Par</string>
     <string name="poker_hand_high_card">Carta Alta</string>
+
+    <!-- Dynamic Strings -->
+    <string name="game_question_greatest">Qual o maior?</string>
+    <string name="game_memory_question">Qual era o número?</string>
+    <string name="game_visual_question">Quantos círculos vermelhos?</string>
+
+    <!-- Notification & Reminder -->
+    <string name="reminder_on">Lembrete Diário: ON</string>
+    <string name="reminder_off">Lembrete Diário: OFF</string>
+    <string name="reminder_scheduled">Lembrete agendado para 10:00!</string>
+    <string name="reminder_canceled">Lembrete cancelado.</string>
+    <string name="notification_channel_name">daily_reminder</string>
+    <string name="notification_channel_desc">Lembrete para treinar seu cérebro</string>
+    <string name="notification_title">Brain Up</string>
+    <string name="notification_content">Hora do seu treino cerebral diário!</string>
+    <string name="best_score_format">Melhor: %d anos</string>
+
+    <!-- Errors & Toasts -->
+    <string name="login_failed">Login falhou: %s</string>
+    <string name="id_copied">ID copiado: %s</string>
+    <string name="firebase_error">Erro Firebase: %s</string>
+    <string name="permission_exact_alarm">Permissão necessária para alarmes exatos.</string>
+
+    <!-- Settings & Dialogs -->
+    <string name="settings_track">Música</string>
 </resources>

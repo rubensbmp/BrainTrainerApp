@@ -206,7 +206,7 @@ class GreatestNumberGameStrategy : GameStrategy {
 
         return GameQuestion(
             id = Random.nextInt(),
-            displayContent = "Qual o maior?", // Text shown during input phase if needed
+            displayContent = "game_question_greatest", // Text shown during input phase if needed
             options = optionsList.map { it.toString() },
             answer = max.toString(),
             flashItems = flashList.map { it.toString() }

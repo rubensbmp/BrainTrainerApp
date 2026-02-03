@@ -28,15 +28,15 @@ class TrainingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         
         val games = listOf(
-            GameOption(getString(R.string.game_multiplication), getString(R.string.desc_multiplication), "MULTIPLICATION", R.drawable.ic_game_multiplication),
-            GameOption(getString(R.string.game_calc), getString(R.string.desc_calc), "CALCULATION", R.drawable.ic_game_calc),
-            GameOption(getString(R.string.game_logic), getString(R.string.desc_logic), "LOGIC_SYMBOL", R.drawable.ic_game_logic),
-            GameOption(getString(R.string.game_poker), getString(R.string.desc_poker), "POKER_HAND", R.drawable.ic_game_poker),
-            GameOption(getString(R.string.game_reflex), getString(R.string.desc_reflex), "REFLEX_GREATEST", R.drawable.ic_game_reflex),
-            GameOption(getString(R.string.game_flags), getString(R.string.desc_flags), "FLAG_QUIZ", R.drawable.ic_game_flags),
-            GameOption(getString(R.string.game_map), getString(R.string.desc_map), "MAP_QUIZ", R.drawable.ic_game_map),
-            GameOption(getString(R.string.game_memory), getString(R.string.desc_memory), "NUMBER_MEMORY", R.drawable.ic_game_memory),
-            GameOption(getString(R.string.game_visual), getString(R.string.desc_visual), "VISUAL_COUNT", R.drawable.ic_game_visual)
+            GameOption(R.string.game_multiplication, R.string.desc_multiplication, "MULTIPLICATION", R.drawable.ic_game_multiplication),
+            GameOption(R.string.game_calc, R.string.desc_calc, "CALCULATION", R.drawable.ic_game_calc),
+            GameOption(R.string.game_logic, R.string.desc_logic, "LOGIC_SYMBOL", R.drawable.ic_game_logic),
+            GameOption(R.string.game_poker, R.string.desc_poker, "POKER_HAND", R.drawable.ic_game_poker),
+            GameOption(R.string.game_reflex, R.string.desc_reflex, "REFLEX_GREATEST", R.drawable.ic_game_reflex),
+            GameOption(R.string.game_flags, R.string.desc_flags, "FLAG_QUIZ", R.drawable.ic_game_flags),
+            GameOption(R.string.game_map, R.string.desc_map, "MAP_QUIZ", R.drawable.ic_game_map),
+            GameOption(R.string.game_memory, R.string.desc_memory, "NUMBER_MEMORY", R.drawable.ic_game_memory),
+            GameOption(R.string.game_visual, R.string.desc_visual, "VISUAL_COUNT", R.drawable.ic_game_visual)
         )
         
         binding.rvTraining.layoutManager = LinearLayoutManager(requireContext())
@@ -44,7 +44,7 @@ class TrainingFragment : Fragment() {
             if (game.typeCode == "MULTIPLICATION") {
                 com.braintrainer.app.ui.MultiplicationSelectionActivity.start(requireContext())
             } else {
-                DifficultySelectionActivity.start(requireContext(), game.typeCode, game.name)
+                DifficultySelectionActivity.start(requireContext(), game.typeCode, getString(game.nameRes))
             }
         }
     }

@@ -20,6 +20,16 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         
         <item name="buttonStyle">@style/ClashButtonStyle</item>
+        
+        <!-- Window Animations -->
+        <item name="android:windowAnimationStyle">@style/WindowAnimation.Fade</item>
+    </style>
+
+    <style name="WindowAnimation.Fade" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/fade_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
     </style>
 
     <style name="ClashButtonStyle" parent="Widget.AppCompat.Button">

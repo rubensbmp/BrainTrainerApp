@@ -103,7 +103,7 @@
     <string name="social_join_group">JOIN GROUP</string>
     <string name="social_group_name_hint">Group Name</string>
     <string name="social_group_id_hint">Group ID (Paste here)</string>
-    <string name="social_invite_msg">Join my group on Brain Up! ID: %s</string>
+    <string name="social_invite_msg">Come compete with me in Brain Up! Join my group with code: %s</string>
     <string name="social_limit_reached">Limit of 5 groups reached.</string>
     <string name="social_years_old">%d years</string>
     <string name="settings_logout">Sign Out Google Account</string>
@@ -126,4 +126,32 @@
     <string name="poker_hand_two_pair">Two Pair</string>
     <string name="poker_hand_pair">Pair</string>
     <string name="poker_hand_high_card">High Card</string>
+
+    <!-- Dynamic Strings -->
+    <string name="game_question_greatest">Which is the largest?</string>
+    <string name="game_memory_question">What was the number?</string>
+    <string name="game_visual_question">How many red circles?</string>
+
+    <!-- Notification & Reminder -->
+    <string name="reminder_on">Daily Reminder: ON</string>
+    <string name="reminder_off">Daily Reminder: OFF</string>
+    <string name="reminder_scheduled">Reminder scheduled for 10:00!</string>
+    <string name="reminder_canceled">Reminder canceled.</string>
+    <string name="notification_channel_name">daily_reminder</string>
+    <string name="notification_channel_desc">Reminder to train your brain</string>
+    <string name="notification_title">Brain Up</string>
+    <string name="notification_content">Time for your daily brain training!</string>
+    <string name="best_score_format">Best: %d years</string>
+    <string name="dialog_about_message">Brain Up is a collection of mini-games designed to challenge and improve your cognitive skills, such as memory, focus, and logic. The main goal is to reach the brain age of 20, which represents peak and ideal performance.\n\nCreated by: Rubens Bampa\nContact: rubensbmp@icloud.com\n\nDesign:\nMaps and icons provided by Flaticon (https://www.flaticon.com/br)</string>
+
+    <!-- Errors & Toasts -->
+    <string name="login_failed">Login failed: %s</string>
+    <string name="id_copied">ID copied: %s</string>
+    <string name="firebase_error">Firebase Error: %s</string>
+    <string name="permission_exact_alarm">Permission needed for exact alarms.</string>
+
+    <!-- Settings & Dialogs -->
+    <string name="settings_about">About</string>
+    <string name="dialog_btn_ok">OK</string>
+    <string name="settings_track">Track</string>
 </resources>

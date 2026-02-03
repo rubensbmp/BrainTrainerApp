@@ -68,9 +68,15 @@ class SettingsFragment : Fragment() {
             // Save settings before locale change restarts activity
             MusicManager.saveAll(requireContext())
             
-            // Apply Locale
-            val appLocale = LocaleListCompat.forLanguageTags(lang)
-            AppCompatDelegate.setApplicationLocales(appLocale)
+            // Trigger Animation then Change Locale
+            (requireActivity() as? com.braintrainer.app.ui.MainMenuActivity)?.animateLanguageChange {
+                val appLocale = LocaleListCompat.forLanguageTags(lang)
+                AppCompatDelegate.setApplicationLocales(appLocale)
+            } ?: run {
+                // Fallback if not attached to MainMenuActivity
+                val appLocale = LocaleListCompat.forLanguageTags(lang)
+                AppCompatDelegate.setApplicationLocales(appLocale)
+            }
         }
 
         // Music Tracks Initialization
@@ -168,7 +174,7 @@ class SettingsFragment : Fragment() {
 
     private fun updateReminderButton() {
         val enabled = isReminderEnabled()
-        binding.btnDailyReminder.text = if (enabled) "Lembrete Diário: ON" else "Lembrete Diário: OFF"
+        binding.btnDailyReminder.text = if (enabled) getString(R.string.reminder_on) else getString(R.string.reminder_off)
     }
 
     private fun scheduleDailyReminder() {
@@ -213,10 +219,10 @@ class SettingsFragment : Fragment() {
                     pendingIntent
                 )
             }
-            android.widget.Toast.makeText(context, "Lembrete agendado para 10:00!", android.widget.Toast.LENGTH_SHORT).show()
+            android.widget.Toast.makeText(context, getString(R.string.reminder_scheduled), android.widget.Toast.LENGTH_SHORT).show()
         } catch (e: SecurityException) {
             // In case of missing SCHEDULE_EXACT_ALARM on Android 12+
-             android.widget.Toast.makeText(context, "Permissão necessária para alarmes exatos.", android.widget.Toast.LENGTH_LONG).show()
+             android.widget.Toast.makeText(context, getString(R.string.permission_exact_alarm), android.widget.Toast.LENGTH_LONG).show()
              startActivity(android.content.Intent(android.provider.Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM))
         }
     }
@@ -229,7 +235,7 @@ class SettingsFragment : Fragment() {
             context, 1001, intent, android.app.PendingIntent.FLAG_IMMUTABLE or android.app.PendingIntent.FLAG_UPDATE_CURRENT
         )
         alarmManager.cancel(pendingIntent)
-        android.widget.Toast.makeText(context, "Lembrete cancelado.", android.widget.Toast.LENGTH_SHORT).show()
+        android.widget.Toast.makeText(context, getString(R.string.reminder_canceled), android.widget.Toast.LENGTH_SHORT).show()
     }
 
     private fun checkNotificationPermission() {

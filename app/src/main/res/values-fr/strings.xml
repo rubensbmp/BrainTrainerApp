@@ -128,6 +128,8 @@
     <string name="poker_hand_two_pair">Deux Paires</string>
     <string name="poker_hand_pair">Paire</string>
     <string name="poker_hand_high_card">Carte Haute</string>
+    <string name="poker_your_hand">VOTRE MAIN</string>
+    <string name="poker_table_cards">TABLE (FLOP / TURN / RIVER)</string>
 
     <!-- Dynamic Strings -->
     <string name="game_question_greatest">Quel est le plus grand ?</string>

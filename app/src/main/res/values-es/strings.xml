@@ -129,6 +129,8 @@
     <string name="poker_hand_two_pair">Dobles Parejas</string>
     <string name="poker_hand_pair">Pareja</string>
     <string name="poker_hand_high_card">Carta Alta</string>
+    <string name="poker_your_hand">TU MANO</string>
+    <string name="poker_table_cards">MESA (FLOP / TURN / RIVER)</string>
 
     <!-- Dynamic Strings -->
     <string name="game_question_greatest">¿Cuál es el mayor?</string>

@@ -162,7 +162,7 @@
             <com.braintrainer.app.ui.views.ClashTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SUA MÃO"
+                android:text="@string/poker_your_hand"
                 android:textSize="14sp"
                 android:textColor="#AAAAAA"
                 android:layout_marginBottom="4dp"/>
@@ -180,7 +180,7 @@
             <com.braintrainer.app.ui.views.ClashTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MESA (FLOP / TURN / RIVER)"
+                android:text="@string/poker_table_cards"
                 android:textSize="14sp"
                 android:textColor="#AAAAAA"
                 android:layout_marginBottom="4dp"/>

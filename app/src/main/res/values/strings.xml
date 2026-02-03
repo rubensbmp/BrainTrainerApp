@@ -177,4 +177,6 @@
 
     <!-- Settings & Dialogs -->
     <string name="settings_track">Música</string>
+    <string name="poker_your_hand">SUA MÃO</string>
+    <string name="poker_table_cards">MESA (FLOP / TURN / RIVER)</string>
 </resources>

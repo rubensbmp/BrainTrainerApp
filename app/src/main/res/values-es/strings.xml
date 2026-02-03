@@ -111,4 +111,19 @@
     <string name="social_join_btn">ENTRAR</string>
     <string name="social_ranking_score">Mejor edad: %d años</string>
     <string name="nav_social_hint">SOCIAL &gt;</string>
+    <string name="game_poker">Manos de Poker</string>
+    <string name="desc_poker">Identifica la mejor mano de poker</string>
+    <string name="instr_poker">Identifica la MEJOR mano de poker posible combinando las cartas de la mano y de la mesa.</string>
+    <string name="poker_question_best_hand">¿Cuál es la mejor mano?</string>
+    <string name="poker_touch_to_continue">Toca para continuar</string>
+    <string name="poker_hand_royal_flush">Escaleira Real</string>
+    <string name="poker_hand_straight_flush">Escaleira de Color</string>
+    <string name="poker_hand_four_kind">Póker</string>
+    <string name="poker_hand_full_house">Full</string>
+    <string name="poker_hand_flush">Color</string>
+    <string name="poker_hand_straight">Escaleira</string>
+    <string name="poker_hand_three_kind">Trío</string>
+    <string name="poker_hand_two_pair">Dobles Parejas</string>
+    <string name="poker_hand_pair">Pareja</string>
+    <string name="poker_hand_high_card">Carta Alta</string>
 </resources>

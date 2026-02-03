@@ -43,14 +43,14 @@ class StatsFragment : Fragment() {
     
     private fun setupListeners() {
         binding.btnClearHistory.setOnClickListener {
-            androidx.appcompat.app.AlertDialog.Builder(requireContext())
-                .setTitle(getString(R.string.dialog_confirm_title))
-                .setMessage(getString(R.string.dialog_confirm_clear_history))
-                .setPositiveButton(getString(R.string.dialog_btn_yes)) { _, _ -> 
-                    viewModel.clearHistory()
-                }
-                .setNegativeButton(getString(R.string.dialog_btn_cancel), null)
-                .show()
+            com.braintrainer.app.util.DialogHelper.showMessageDialog(
+                context = requireContext(),
+                title = getString(R.string.dialog_confirm_title),
+                message = getString(R.string.dialog_confirm_clear_history),
+                positiveText = getString(R.string.dialog_btn_yes),
+                negativeText = getString(R.string.dialog_btn_cancel),
+                onPositive = { viewModel.clearHistory() }
+            )
         }
     }
     

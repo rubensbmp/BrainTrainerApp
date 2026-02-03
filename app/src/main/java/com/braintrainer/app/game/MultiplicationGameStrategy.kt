@@ -3,33 +3,42 @@ package com.braintrainer.app.game
 import kotlin.random.Random
 
 class MultiplicationGameStrategy : GameStrategy {
-    private var lastCombination: String? = null
+    private val combinationPool = mutableListOf<Pair<Int, Int>>()
+    private var lastDifficulty: String? = null
+
+    private fun refreshPool(difficulty: String) {
+        combinationPool.clear()
+        if (difficulty.startsWith("TABLE_")) {
+            val table = difficulty.substringAfter("TABLE_").toIntOrNull() ?: 7
+            for (i in 1..10) {
+                combinationPool.add(table to i)
+            }
+        } else {
+            val range = when(difficulty) {
+                "EASY" -> 1..5
+                "MEDIUM" -> 6..10
+                "HARD" -> 11..15
+                else -> 2..9
+            }
+            // Add all combinations within the range x 1-10
+            for (t in range) {
+                for (i in 1..10) {
+                    combinationPool.add(t to i)
+                }
+            }
+        }
+        combinationPool.shuffle()
+    }
 
     override fun generateQuestion(difficulty: String): GameQuestion {
-        var table: Int
-        var operand: Int
-        var combination: String
+        if (difficulty != lastDifficulty || combinationPool.isEmpty()) {
+            lastDifficulty = difficulty
+            refreshPool(difficulty)
+        }
 
-        do {
-            if (difficulty.startsWith("TABLE_")) {
-                // "TABLE_7" -> 7
-                table = difficulty.substringAfter("TABLE_").toIntOrNull() ?: 7
-                operand = Random.nextInt(1, 11) // 1 to 10
-            } else {
-                // General difficulty (Daily Test or Random)
-                val range = when(difficulty) {
-                    "EASY" -> 1..5
-                    "MEDIUM" -> 6..10
-                    "HARD" -> 11..15
-                    else -> 2..9
-                }
-                table = range.random()
-                operand = Random.nextInt(1, 11)
-            }
-            combination = "$table-x-$operand"
-        } while (combination == lastCombination)
-
-        lastCombination = combination
+        val pair = combinationPool.removeAt(0)
+        val table = pair.first
+        val operand = pair.second
 
         val correctAnswer = table * operand
         val questionText = "$table x $operand = ?"

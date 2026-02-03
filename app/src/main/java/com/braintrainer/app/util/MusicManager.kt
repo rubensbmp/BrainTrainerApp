@@ -13,18 +13,75 @@ object MusicManager {
         }
     
     var sfxVolume: Float = 1.0f
+    var isClickSoundEnabled: Boolean = true
+    var currentTrack: String = "bg_music"
 
+    fun loadPreferences(context: Context) {
+        val prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
+        musicVolume = prefs.getFloat("music_volume", 0.5f)
+        sfxVolume = prefs.getFloat("sfx_volume", 1.0f)
+        isClickSoundEnabled = prefs.getBoolean("click_sfx_enabled", true)
+        currentTrack = prefs.getString("current_track", "bg_music") ?: "bg_music"
+    }
+
+    private fun saveSetting(context: Context, key: String, value: Any) {
+        val prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
+        with(prefs.edit()) {
+            when (value) {
+                is Float -> putFloat(key, value)
+                is Boolean -> putBoolean(key, value)
+                is String -> putString(key, value)
+            }
+            apply()
+        }
+    }
+
+    fun saveAll(context: Context) {
+        saveSetting(context, "music_volume", musicVolume)
+        saveSetting(context, "sfx_volume", sfxVolume)
+        saveSetting(context, "click_sfx_enabled", isClickSoundEnabled)
+        saveSetting(context, "current_track", currentTrack)
+    }
+
+    fun changeTrack(context: Context, trackName: String) {
+        if (currentTrack == trackName) return
+        currentTrack = trackName
+        saveSetting(context, "current_track", currentTrack)
+        
+        val wasPlaying = mediaPlayer?.isPlaying ?: false
+        mediaPlayer?.stop()
+        mediaPlayer?.release()
+        mediaPlayer = null
+        
+        if (wasPlaying || activeActivities > 0) {
+            // Restart with new track
+            activeActivities-- // Temporarily decrement to reuse startMusic logic
+            startMusic(context)
+        }
+    }
     private var soundPool: android.media.SoundPool? = null
     private var soundMap = mutableMapOf<Int, Int>()
     
     fun initSFX(context: Context) {
         if (soundPool == null) {
             soundPool = android.media.SoundPool.Builder().setMaxStreams(5).build()
-            // Load sounds
-            loadSound(context, "sfx_correct", 1)
-            loadSound(context, "sfx_wrong", 2)
-            loadSound(context, "sfx_finish", 3)
         }
+        // Ensure sounds are loaded (safe against process restarts or partial loads)
+        if (!soundMap.containsKey(SFX.CORRECT)) loadSound(context, "sfx_correct", SFX.CORRECT)
+        
+        // Try to load 'erro2' first (User preference), otherwise fallback to legacy 'sfx_wrong'
+        if (!soundMap.containsKey(SFX.WRONG)) {
+             var resId = context.resources.getIdentifier("erro2", "raw", context.packageName)
+             if (resId != 0) {
+                 val soundId = soundPool?.load(context, resId, 1) ?: 0
+                 soundMap[SFX.WRONG] = soundId
+             } else {
+                 loadSound(context, "sfx_wrong", SFX.WRONG)
+             }
+        }
+        
+        if (!soundMap.containsKey(SFX.FINISH)) loadSound(context, "sfx_finish", SFX.FINISH)
+        if (!soundMap.containsKey(SFX.CLICK)) loadSound(context, "click", SFX.CLICK)
     }
     
     private fun loadSound(context: Context, name: String, key: Int) {
@@ -35,15 +92,29 @@ object MusicManager {
         }
     }
     
+    private val toneGen = android.media.ToneGenerator(android.media.AudioManager.STREAM_MUSIC, 100)
+
     fun playSFX(key: Int) {
-        val soundId = soundMap[key] ?: return
-        soundPool?.play(soundId, sfxVolume, sfxVolume, 1, 0, 1f)
+        if (key == SFX.CLICK && !isClickSoundEnabled) return
+        
+        val soundId = soundMap[key]
+        if (soundId != null && soundId != 0) {
+            // Priority: 2 for Game Events (Correct/Wrong/Finish), 1 for UI Clicks
+            val priority = if (key == SFX.CLICK) 1 else 2
+            soundPool?.play(soundId, sfxVolume, sfxVolume, priority, 0, 1f)
+        } else if (key == SFX.WRONG) {
+            // Fallback for Wrong sound if file fails
+            toneGen.startTone(android.media.ToneGenerator.TONE_CDMA_SOFT_ERROR_LITE, 150)
+        } else if (key == SFX.CORRECT) {
+             toneGen.startTone(android.media.ToneGenerator.TONE_CDMA_ONE_MIN_BEEP, 150)
+        }
     }
 
     object SFX {
         const val CORRECT = 1
         const val WRONG = 2
         const val FINISH = 3
+        const val CLICK = 4
     }
 
     private var activeActivities = 0
@@ -55,7 +126,7 @@ object MusicManager {
         
         if (mediaPlayer == null) {
             try {
-                val resId = context.resources.getIdentifier("bg_music", "raw", context.packageName)
+                val resId = context.resources.getIdentifier(currentTrack, "raw", context.packageName)
                 if (resId != 0) {
                     mediaPlayer = MediaPlayer.create(context, resId)
                     mediaPlayer?.isLooping = true

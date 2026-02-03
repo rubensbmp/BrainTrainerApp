@@ -23,6 +23,7 @@ class GameActivity : AppCompatActivity() {
         setContentView(binding.root)
         
         // Initialize SFX
+        com.braintrainer.app.util.MusicManager.loadPreferences(this)
         com.braintrainer.app.util.MusicManager.initSFX(this)
 
         gameType = intent.getStringExtra(EXTRA_GAME_TYPE) ?: "CALCULATION"
@@ -73,6 +74,7 @@ class GameActivity : AppCompatActivity() {
         viewModel.setTimerPaused(true)
         
         binding.clGameIntro.setOnClickListener {
+            com.braintrainer.app.util.MusicManager.playSFX(com.braintrainer.app.util.MusicManager.SFX.CLICK)
             binding.clGameIntro.visibility = android.view.View.GONE
             
             if (!viewModel.getIsGameStarted()) {
@@ -93,7 +95,7 @@ class GameActivity : AppCompatActivity() {
                 // Disable all to prevent multi-click during delay
                 buttons.forEach { it.isEnabled = false }
                 
-                viewModel.submitAnswer(btn.text.toString())
+                viewModel.submitAnswer(btn.tag?.toString() ?: btn.text.toString())
             }
         }
     }
@@ -109,19 +111,31 @@ class GameActivity : AppCompatActivity() {
             } else {
                 binding.ivQuestionImage.visibility = android.view.View.GONE
                 binding.tvQuestion.visibility = android.view.View.VISIBLE
-                binding.tvQuestion.text = question.displayContent
+                binding.tvQuestion.text = resolveString(question.displayContent)
             }
             
             // Map options to buttons
             val buttons = listOf(binding.btnOption1, binding.btnOption2, binding.btnOption3, binding.btnOption4)
             question.options.forEachIndexed { index, option ->
                 if (index < buttons.size) {
-                    buttons[index].text = option
+                    buttons[index].text = resolveString(option)
+                    buttons[index].tag = option // Store raw key/value for comparison
+                    buttons[index].isSilent = true // User Request: No click sound for answers
                     buttons[index].visibility = android.view.View.VISIBLE
                     buttons[index].isEnabled = true
                     // Reset to purple for new question
                     buttons[index].setBackgroundResource(R.drawable.bg_clash_button_purple)
                     buttons[index].backgroundTintList = null
+                    
+                    // User Request: Double text size for specific games
+                    when (gameType) {
+                        "LOGIC_SYMBOL", "MULTIPLICATION", "CALCULATION", "REFLEX_GREATEST", "VISUAL_COUNT" -> {
+                            buttons[index].textSize = 44f 
+                        }
+                        else -> {
+                            buttons[index].textSize = 22f
+                        }
+                    }
                 }
             }
             
@@ -191,7 +205,8 @@ class GameActivity : AppCompatActivity() {
                  val correctAns = viewModel.currentQuestion.value?.answer
                  val buttons = listOf(binding.btnOption1, binding.btnOption2, binding.btnOption3, binding.btnOption4)
                  buttons.forEach { btn ->
-                     if (btn.text == correctAns) {
+                     val rawValue = btn.tag?.toString() ?: btn.text.toString()
+                     if (rawValue == correctAns) {
                          btn.setBackgroundResource(R.drawable.bg_clash_button_green)
                          btn.backgroundTintList = null
                      }
@@ -200,10 +215,11 @@ class GameActivity : AppCompatActivity() {
             
             // Poker "Touch to Continue" Logic
             if (gameType == "POKER_HAND") {
-                binding.tvFlashCenter.text = "Toque para continuar"
+                binding.tvFlashCenter.text = getString(R.string.poker_touch_to_continue)
                 binding.tvFlashCenter.visibility = android.view.View.VISIBLE
                 binding.tvFlashCenter.textSize = 24f
                 binding.tvFlashCenter.setOnClickListener {
+                    com.braintrainer.app.util.MusicManager.playSFX(com.braintrainer.app.util.MusicManager.SFX.CLICK)
                     binding.tvFlashCenter.visibility = android.view.View.GONE
                     viewModel.forceNextQuestion()
                 }
@@ -371,7 +387,6 @@ class GameActivity : AppCompatActivity() {
                 communityViews[0].visibility = android.view.View.VISIBLE
                 communityViews[1].visibility = android.view.View.VISIBLE
                 communityViews[2].visibility = android.view.View.VISIBLE
-                com.braintrainer.app.util.MusicManager.playSFX(com.braintrainer.app.util.MusicManager.SFX.CORRECT)
             }
         }, step)
         
@@ -451,6 +466,18 @@ class GameActivity : AppCompatActivity() {
             intent.putExtra(EXTRA_FLASH_TIME, flashTime)
             intent.putExtra(EXTRA_IS_PRACTICE, isPractice)
             context.startActivity(intent)
+        }
+    }
+
+    private fun resolveString(key: String): String {
+        // Optimization: If key contains spaces or starts with a digit, it's not a resource name
+        if (key.contains(" ") || key.firstOrNull()?.isDigit() == true) return key
+        
+        return try {
+            val resId = resources.getIdentifier(key, "string", packageName)
+            if (resId != 0) getString(resId) else key
+        } catch (e: Exception) {
+            key
         }
     }
 }

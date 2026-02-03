@@ -15,6 +15,10 @@ class MainMenuActivity : AppCompatActivity() {
         setContentView(binding.root)
         
         setupViewPager()
+        
+        // Initialize Audio Settings
+        com.braintrainer.app.util.MusicManager.loadPreferences(this)
+        com.braintrainer.app.util.MusicManager.initSFX(this)
     }
 
     override fun onResume() {

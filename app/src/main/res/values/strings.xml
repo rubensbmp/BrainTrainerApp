@@ -129,8 +129,27 @@
     <string name="daily_limit_title">Limite Diário Atingido</string>
     <string name="daily_limit_message">Você só pode realizar um teste ranqueado por dia. Tente novamente em %s para atualizar sua idade cerebral.</string>
     <!-- Poker Game -->
-    <string name="game_poker">Poker Hand</string>
+    <string name="game_poker">Mãos de Poker</string>
     <string name="desc_poker">Identifique a melhor mão de poker</string>
     <string name="instr_poker">Identifique a MELHOR mão de poker possível combinando as cartas da mão e da mesa.</string>
     <string name="diff_poker_speed">VELOCIDADE DE REVELAÇÃO: %.1fs</string>
+    <string name="social_delete_group_title">Apagar Grupo</string>
+    <string name="social_delete_group_msg">Tem certeza que deseja apagar o grupo \'%s\'? Todos os membros serão removidos.</string>
+    <string name="social_kick_member">Expulsar do Grupo</string>
+    <string name="social_transfer_admin">Tornar Administrador</string>
+    <string name="social_action_label">Ação</string>
+    <string name="social_kick_confirm">Tem certeza que deseja expulsar %s do grupo?</string>
+    <string name="social_transfer_confirm">Tem certeza que deseja transferir a administração para %s? Você deixará de ser o dono.</string>
+    <string name="poker_question_best_hand">Qual a melhor mão?</string>
+    <string name="poker_touch_to_continue">Toque para continuar</string>
+    <string name="poker_hand_royal_flush">Royal Flush</string>
+    <string name="poker_hand_straight_flush">Straight Flush</string>
+    <string name="poker_hand_four_kind">Quadra</string>
+    <string name="poker_hand_full_house">Full House</string>
+    <string name="poker_hand_flush">Flush</string>
+    <string name="poker_hand_straight">Sequência</string>
+    <string name="poker_hand_three_kind">Trinca</string>
+    <string name="poker_hand_two_pair">Dois Pares</string>
+    <string name="poker_hand_pair">Um Par</string>
+    <string name="poker_hand_high_card">Carta Alta</string>
 </resources>

@@ -14,18 +14,18 @@ class PokerGameStrategy : GameStrategy {
     private val ranks = listOf("2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A")
     private val suits = listOf("S", "H", "D", "C")
     
-    // Ordered Hand Types
+    // Ordered Hand Types (Internal Keys)
     private val handTypes = listOf(
-        "Royal Flush", 
-        "Straight Flush", 
-        "Four of a Kind", 
-        "Full House", 
-        "Flush", 
-        "Straight", 
-        "Three of a Kind", 
-        "Two Pair", 
-        "Pair", 
-        "High Card"
+        "poker_hand_royal_flush", 
+        "poker_hand_straight_flush", 
+        "poker_hand_four_kind", 
+        "poker_hand_full_house", 
+        "poker_hand_flush", 
+        "poker_hand_straight", 
+        "poker_hand_three_kind", 
+        "poker_hand_two_pair", 
+        "poker_hand_pair", 
+        "poker_hand_high_card"
     )
 
     // Helper class for Hand Evaluation
@@ -94,9 +94,9 @@ class PokerGameStrategy : GameStrategy {
                  val highestInSF = parsed.filter { sfIndices.contains(it.originalIndex) }.maxOf { it.rank }
                  // Need to check strict Royal (A-K-Q-J-10)
                  if (highestInSF == 14 && !sfIndices.any { parsed.find { p -> p.originalIndex == it }?.rank == 2 }) { 
-                     return "Royal Flush" to sfIndices
+                     return "poker_hand_royal_flush" to sfIndices
                  }
-                 return "Straight Flush" to sfIndices
+                 return "poker_hand_straight_flush" to sfIndices
              }
         }
         
@@ -105,7 +105,7 @@ class PokerGameStrategy : GameStrategy {
         if (fourKindEntry != null) {
             // Strict: Only the 4 cards
             val indices = fourKindEntry.value.map { it.originalIndex }
-            return "Four of a Kind" to indices
+            return "poker_hand_four_kind" to indices
         }
         
         // Full House
@@ -117,25 +117,25 @@ class PokerGameStrategy : GameStrategy {
              val pairRank = twoKinds.firstOrNull { it != mainThreeRank }
              
              if (pairRank != null) {
-                 val indices = mutableListOf<Int>()
-                 indices.addAll(rankMap[mainThreeRank]!!.take(3).map { it.originalIndex })
-                 indices.addAll(rankMap[pairRank]!!.take(2).map { it.originalIndex })
-                 return "Full House" to indices
+                  val indices = mutableListOf<Int>()
+                  indices.addAll(rankMap[mainThreeRank]!!.take(3).map { it.originalIndex })
+                  indices.addAll(rankMap[pairRank]!!.take(2).map { it.originalIndex })
+                  return "poker_hand_full_house" to indices
              }
         }
         
         if (isFlush) {
-            return "Flush" to flushCards.take(5).map { it.originalIndex }
+            return "poker_hand_flush" to flushCards.take(5).map { it.originalIndex }
         }
         
         if (isStraight) {
-            return "Straight" to straightIndices!!
+            return "poker_hand_straight" to straightIndices!!
         }
         
         if (threeKinds.isNotEmpty()) {
             val rank = threeKinds[0]
             val indices = rankMap[rank]!!.take(3).map { it.originalIndex }
-            return "Three of a Kind" to indices
+            return "poker_hand_three_kind" to indices
         }
         
         // Two Pair
@@ -146,17 +146,17 @@ class PokerGameStrategy : GameStrategy {
             val indices = mutableListOf<Int>()
             indices.addAll(rankMap[highPair]!!.take(2).map { it.originalIndex })
             indices.addAll(rankMap[lowPair]!!.take(2).map { it.originalIndex })
-            return "Two Pair" to indices
+            return "poker_hand_two_pair" to indices
         }
         
         if (pairs.size == 1) {
             val rank = pairs[0]
             val indices = rankMap[rank]!!.take(2).map { it.originalIndex }
-            return "Pair" to indices
+            return "poker_hand_pair" to indices
         }
         
         // High Card (Strict: Only the 1 highest card)
-        return "High Card" to parsed.take(1).map { it.originalIndex }
+        return "poker_hand_high_card" to parsed.take(1).map { it.originalIndex }
     }
 
     override fun generateQuestion(difficulty: String): GameQuestion {
@@ -208,7 +208,7 @@ class PokerGameStrategy : GameStrategy {
         
                 return GameQuestion(
                     id = Random.nextInt(),
-                    displayContent = "Qual a melhor mão?", 
+                    displayContent = "poker_question_best_hand", 
                     options = optionsSet.toList().shuffled(),
                     answer = correctHand,
                     flashItems = flashData

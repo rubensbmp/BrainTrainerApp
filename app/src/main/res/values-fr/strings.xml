@@ -111,4 +111,19 @@
     <string name="social_join_btn">REJOINDRE</string>
     <string name="social_ranking_score">Meilleur âge: %d ans</string>
     <string name="nav_social_hint">SOCIAL &gt;</string>
+    <string name="game_poker">Mains de Poker</string>
+    <string name="desc_poker">Identifiez la meilleure main de poker</string>
+    <string name="instr_poker">Identifiez la MEILLEURE main de poker possible en combinant vos cartes et celles du plateau.</string>
+    <string name="poker_question_best_hand">Quelle est la meilleure main ?</string>
+    <string name="poker_touch_to_continue">Touchez pour continuer</string>
+    <string name="poker_hand_royal_flush">Quinte Flush Royale</string>
+    <string name="poker_hand_straight_flush">Quinte Flush</string>
+    <string name="poker_hand_four_kind">Carré</string>
+    <string name="poker_hand_full_house">Full</string>
+    <string name="poker_hand_flush">Couleur</string>
+    <string name="poker_hand_straight">Quinte</string>
+    <string name="poker_hand_three_kind">Brelan</string>
+    <string name="poker_hand_two_pair">Deux Paires</string>
+    <string name="poker_hand_pair">Paire</string>
+    <string name="poker_hand_high_card">Carte Haute</string>
 </resources>

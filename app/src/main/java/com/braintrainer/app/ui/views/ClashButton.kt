@@ -14,6 +14,7 @@ class ClashButton @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = androidx.appcompat.R.attr.buttonStyle
 ) : AppCompatButton(context, attrs, defStyleAttr) {
+    var isSilent: Boolean = false
 
     init {
         try {
@@ -64,6 +65,9 @@ class ClashButton @JvmOverloads constructor(
     override fun onTouchEvent(event: android.view.MotionEvent): Boolean {
         when (event.action) {
             android.view.MotionEvent.ACTION_DOWN -> {
+                if (!isSilent) {
+                    com.braintrainer.app.util.MusicManager.playSFX(com.braintrainer.app.util.MusicManager.SFX.CLICK)
+                }
                 animate().scaleX(0.92f).scaleY(0.92f)
                     .setDuration(70)
                     .setInterpolator(android.view.animation.DecelerateInterpolator())

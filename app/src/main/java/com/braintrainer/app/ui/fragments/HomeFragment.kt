@@ -132,11 +132,12 @@ class HomeFragment : Fragment() {
 
     private fun showDailyLimitDialog() {
         val remaining = viewModel.getTimeRemainingUntilNextDay()
-        androidx.appcompat.app.AlertDialog.Builder(requireContext())
-            .setTitle(R.string.daily_limit_title)
-            .setMessage(getString(R.string.daily_limit_message, remaining))
-            .setPositiveButton(R.string.dialog_btn_ok) { d, _ -> d.dismiss() }
-            .show()
+        com.braintrainer.app.util.DialogHelper.showMessageDialog(
+            context = requireContext(),
+            title = getString(R.string.daily_limit_title),
+            message = getString(R.string.daily_limit_message, remaining),
+            positiveText = getString(R.string.dialog_btn_ok)
+        )
     }
 
     override fun onDestroyView() {

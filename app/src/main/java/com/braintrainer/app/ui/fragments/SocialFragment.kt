@@ -83,12 +83,14 @@ class SocialFragment : Fragment() {
         viewModel.userGroups.observe(viewLifecycleOwner) { groups ->
             binding.rvGroups.adapter = GroupAdapter(groups, 
                 onDelete = { group -> 
-                    AlertDialog.Builder(context)
-                        .setTitle("Apagar Grupo")
-                        .setMessage("Tem certeza que deseja apagar o grupo '${group.name}'? Todos os membros serão removidos.")
-                        .setPositiveButton("Sim") { _, _ -> viewModel.deleteGroup(group.groupId) }
-                        .setNegativeButton("Não", null)
-                        .show()
+                    com.braintrainer.app.util.DialogHelper.showMessageDialog(
+                        context = requireContext(),
+                        title = getString(R.string.social_delete_group_title),
+                        message = getString(R.string.social_delete_group_msg, group.name),
+                        positiveText = getString(R.string.dialog_btn_yes),
+                        negativeText = getString(R.string.dialog_btn_cancel),
+                        onPositive = { viewModel.deleteGroup(group.groupId) }
+                    )
                 },
                 onCopyId = { group ->
                     val clipboard = context?.getSystemService(android.content.Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
@@ -110,12 +112,30 @@ class SocialFragment : Fragment() {
                 currentUserId = FirebaseAuth.getInstance().currentUser?.uid ?: "",
                 isCurrentUserAdmin = selectedGroup?.ownerId == FirebaseAuth.getInstance().currentUser?.uid,
                 onMemberAction = { member ->
-                    val options = arrayOf("Expulsar do Grupo", "Tornar Administrador (Transferir)")
+                    val options = arrayOf(getString(R.string.social_kick_member), getString(R.string.social_transfer_admin))
                     AlertDialog.Builder(context)
-                        .setTitle("Ação: ${member.name}")
+                        .setTitle("${getString(R.string.social_action_label)}: ${member.name}")
                         .setItems(options) { _, which ->
-                            if (which == 0) viewModel.kickMember(selectedGroup!!.groupId, member.uid)
-                            else viewModel.transferAdmin(selectedGroup!!.groupId, member.uid)
+                            if (which == 0) {
+                                com.braintrainer.app.util.DialogHelper.showMessageDialog(
+                                    context = requireContext(),
+                                    title = getString(R.string.social_kick_member),
+                                    message = getString(R.string.social_kick_confirm, member.name),
+                                    positiveText = getString(R.string.dialog_btn_yes),
+                                    negativeText = getString(R.string.dialog_btn_cancel),
+                                    onPositive = { viewModel.kickMember(selectedGroup!!.groupId, member.uid) }
+                                )
+                            }
+                            else {
+                                com.braintrainer.app.util.DialogHelper.showMessageDialog(
+                                    context = requireContext(),
+                                    title = getString(R.string.social_transfer_admin),
+                                    message = getString(R.string.social_transfer_confirm, member.name),
+                                    positiveText = getString(R.string.dialog_btn_yes),
+                                    negativeText = getString(R.string.dialog_btn_cancel),
+                                    onPositive = { viewModel.transferAdmin(selectedGroup!!.groupId, member.uid) }
+                                )
+                            }
                         }
                         .show()
                 }

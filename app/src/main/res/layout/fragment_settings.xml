@@ -119,6 +119,84 @@
             android:splitTrack="false"
             android:layout_marginBottom="40dp"/>
 
+        <com.braintrainer.app.ui.views.ClashTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Track"
+            android:textColor="#BBDEFB"
+            android:layout_marginTop="8dp"/>
+
+        <RadioGroup
+            android:id="@+id/rgMusicTrack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+            
+            <com.braintrainer.app.ui.views.ClashRadioButton
+                android:id="@+id/rbTrackDefault"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="🎼"
+                android:textSize="20sp"
+                android:background="@drawable/selector_language_blue"
+                android:backgroundTint="@null"
+                android:gravity="center"
+                android:layout_margin="4dp"/>
+                
+            <com.braintrainer.app.ui.views.ClashRadioButton
+                android:id="@+id/rbTrackLoFi"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="☕"
+                android:textSize="20sp"
+                android:background="@drawable/selector_language_blue"
+                android:backgroundTint="@null"
+                android:gravity="center"
+                android:layout_margin="4dp"/>
+                
+            <com.braintrainer.app.ui.views.ClashRadioButton
+                android:id="@+id/rbTrackChuva"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="🌧️"
+                android:textSize="20sp"
+                android:background="@drawable/selector_language_blue"
+                android:backgroundTint="@null"
+                android:gravity="center"
+                android:layout_margin="4dp"/>
+
+            <com.braintrainer.app.ui.views.ClashRadioButton
+                android:id="@+id/rbTrackBrown"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:text="🟫"
+                android:textSize="20sp"
+                android:background="@drawable/selector_language_blue"
+                android:backgroundTint="@null"
+                android:gravity="center"
+                android:layout_margin="4dp"/>
+        </RadioGroup>
+
+        <com.braintrainer.app.ui.views.ClashButton
+            android:id="@+id/btnDailyReminder"
+            android:layout_width="200dp"
+            android:layout_height="56dp"
+            android:text="Lembrete Diário: OFF"
+            android:background="@drawable/bg_clash_button_yellow_clash"
+            android:backgroundTint="@null"
+            android:layout_marginBottom="16dp"/>
+
+        <com.braintrainer.app.ui.views.ClashButton
+            android:id="@+id/btnToggleClickSFX"
+            android:layout_width="200dp"
+            android:layout_height="56dp"
+            android:text="Sons de Clique: ON"
+            android:background="@drawable/bg_clash_button_yellow_clash"
+            android:backgroundTint="@null"
+            android:layout_marginBottom="24dp"/>
+
         <!-- Arrow to indicate swipe right back to history/home -->
         <com.braintrainer.app.ui.views.ClashTextView
             android:layout_width="wrap_content"
@@ -131,17 +209,17 @@
         <com.braintrainer.app.ui.views.ClashButton
             android:id="@+id/btnAbout"
             android:layout_width="200dp"
-            android:layout_height="64dp"
+            android:layout_height="56dp"
             android:background="@drawable/bg_clash_button_purple"
             android:backgroundTint="@null"
             android:text="@string/settings_about"
             android:textColor="#FFFFFF"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="12dp" />
 
         <com.braintrainer.app.ui.views.ClashButton
             android:id="@+id/btnLogout"
             android:layout_width="200dp"
-            android:layout_height="64dp"
+            android:layout_height="56dp"
             android:background="@drawable/bg_clash_button_purple"
             android:backgroundTint="@null"
             android:text="@string/settings_logout"

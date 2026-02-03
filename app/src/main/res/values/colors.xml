@@ -26,4 +26,5 @@
     <color name="clash_border_grey">#9E9E9E</color>
     
     <color name="clash_text_dark">#FFFFFF</color>
+    <color name="clash_text_light">#FFFFFF</color>
 </resources>

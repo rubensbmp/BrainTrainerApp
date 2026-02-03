@@ -37,7 +37,7 @@ class SocialFragment : Fragment() {
             val account = task.getResult(ApiException::class.java)!!
             firebaseAuthWithGoogle(account.idToken!!)
         } catch (e: Exception) {
-            Toast.makeText(context, "Login falhou: ${e.message}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.login_failed, e.message), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -93,10 +93,14 @@ class SocialFragment : Fragment() {
                     )
                 },
                 onCopyId = { group ->
-                    val clipboard = context?.getSystemService(android.content.Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
-                    val clip = android.content.ClipData.newPlainText("Group ID", group.groupId)
-                    clipboard.setPrimaryClip(clip)
-                    Toast.makeText(context, "ID copiado: ${group.groupId}", Toast.LENGTH_SHORT).show()
+                    val inviteMsg = getString(R.string.social_invite_msg, group.groupId)
+                    val sendIntent = Intent().apply {
+                        action = Intent.ACTION_SEND
+                        putExtra(Intent.EXTRA_TEXT, inviteMsg)
+                        type = "text/plain"
+                    }
+                    val shareIntent = Intent.createChooser(sendIntent, null)
+                    startActivity(shareIntent)
                 },
                 onClick = { group ->
                     selectedGroup = group
@@ -153,7 +157,7 @@ class SocialFragment : Fragment() {
             if (task.isSuccessful) {
                 viewModel.checkAuthStatus()
             } else {
-                Toast.makeText(context, "Erro Firebase: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getString(R.string.firebase_error, task.exception?.message), Toast.LENGTH_SHORT).show()
             }
         }
     }

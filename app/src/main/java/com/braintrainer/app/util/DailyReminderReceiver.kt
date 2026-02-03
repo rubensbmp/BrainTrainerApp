@@ -13,11 +13,11 @@ class DailyReminderReceiver : BroadcastReceiver() {
         // Create Channel (Safe to call repeatedly)
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             val channel = android.app.NotificationChannel(
-                "daily_reminder",
-                "Daily Reminder",
+                context.getString(R.string.notification_channel_name),
+                context.getString(R.string.notification_channel_desc),
                 android.app.NotificationManager.IMPORTANCE_DEFAULT
             )
-            channel.description = "Lembrete para treinar seu cérebro"
+            channel.description = context.getString(R.string.notification_channel_desc)
             notificationManager.createNotificationChannel(channel)
         }
         
@@ -30,10 +30,10 @@ class DailyReminderReceiver : BroadcastReceiver() {
         )
         
         // Build Notification
-        val builder = androidx.core.app.NotificationCompat.Builder(context, "daily_reminder")
+        val builder = androidx.core.app.NotificationCompat.Builder(context, context.getString(R.string.notification_channel_name))
             .setSmallIcon(R.drawable.ic_brain_up)
-            .setContentTitle("Hora de Treinar! 🧠")
-            .setContentText("Mantenha seu cérebro ativo com o desafio diário.")
+            .setContentTitle(context.getString(R.string.notification_title))
+            .setContentText(context.getString(R.string.notification_content))
             .setPriority(androidx.core.app.NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)

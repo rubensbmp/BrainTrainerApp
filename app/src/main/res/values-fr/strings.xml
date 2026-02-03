@@ -103,7 +103,7 @@
     <string name="social_join_group">REJOINDRE UN GROUPE</string>
     <string name="social_group_name_hint">Nom du groupe</string>
     <string name="social_group_id_hint">ID do Grupo (Coller aqui)</string>
-    <string name="social_invite_msg">Rejoignez mon groupe sur Brain Up ! ID : %s</string>
+    <string name="social_invite_msg">Venez rivaliser avec moi dans Brain Up ! Rejoignez mon groupe avec le code : %s</string>
     <string name="social_limit_reached">Limite de 5 groupes atteinte.</string>
     <string name="social_years_old">%d ans</string>
     <string name="settings_logout">Se déconnecter de Google</string>
@@ -128,4 +128,33 @@
     <string name="poker_hand_two_pair">Deux Paires</string>
     <string name="poker_hand_pair">Paire</string>
     <string name="poker_hand_high_card">Carte Haute</string>
+
+    <!-- Dynamic Strings -->
+    <string name="game_question_greatest">Quel est le plus grand ?</string>
+    <string name="game_memory_question">Quel était le nombre ?</string>
+    <string name="game_visual_question">Combien de cercles rouges ?</string>
+
+    <!-- Notification & Reminder -->
+    <string name="reminder_on">Rappel Quotidien : ON</string>
+    <string name="reminder_off">Rappel Quotidien : OFF</string>
+    <string name="reminder_scheduled">Rappel programmé à 10:00 !</string>
+    <string name="reminder_canceled">Rappel annulé.</string>
+    <string name="notification_channel_name">daily_reminder</string>
+    <string name="notification_channel_desc">Rappel pour entraîner votre cerveau</string>
+    <string name="notification_title">Brain Up</string>
+    <string name="notification_content">L\'heure de votre entraînement cérébral quotidien !</string>
+
+    <string name="best_score_format">Meilleur : %d ans</string>
+    <string name="dialog_about_message">Brain Up est une collection de mini-jeux conçus pour défier et améliorer vos compétences cognitives, telles que la mémoire, la concentration et la logique. L\'objectif principal est d\'atteindre l\'âge cérébral de 20 ans, ce qui représente la performance maximale et idéale.\n\nCréé par : Rubens Bampa\nContact : rubensbmp@icloud.com\n\nDesign :\nCartes et icônes fournies par Flaticon (https://www.flaticon.com/br)</string>
+
+    <!-- Errors & Toasts -->
+    <string name="login_failed">Échec de la connexion : %s</string>
+    <string name="id_copied">ID copié : %s</string>
+    <string name="firebase_error">Erreur Firebase : %s</string>
+    <string name="permission_exact_alarm">Permission requise pour les alarmes exactes.</string>
+
+    <!-- Settings & Dialogs -->
+    <string name="settings_about">À propos</string>
+    <string name="dialog_btn_ok">OK</string>
+    <string name="settings_track">Piste</string>
 </resources>

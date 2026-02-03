@@ -14,4 +14,21 @@
         android:layout_height="match_parent"
         android:background="@android:color/transparent"/>
 
+    <View
+        android:id="@+id/viewCurtain"
+        android:layout_width="3000dp"
+        android:layout_height="3000dp"
+        android:background="@color/clash_bg_blue"
+        android:rotation="45"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:visibility="invisible"
+        android:translationX="-2500dp"
+        android:translationY="-2500dp"
+        android:elevation="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

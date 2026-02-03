@@ -141,7 +141,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Escolha a Dificuldade"
+                    android:text="@string/diff_header_difficulty"
                     android:textSize="13sp"
                     android:layout_marginBottom="8dp"/>
 
@@ -152,9 +152,9 @@
                     android:layout_gravity="center"
                     android:orientation="horizontal"
                     android:layout_marginBottom="16dp">
-                    <RadioButton android:id="@+id/rbEasy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Fácil" android:layout_marginEnd="12dp"/>
-                    <RadioButton android:id="@+id/rbMedium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Médio" android:checked="true" android:layout_marginEnd="12dp"/>
-                    <RadioButton android:id="@+id/rbHard" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Difícil"/>
+                    <RadioButton android:id="@+id/rbEasy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/diff_easy" android:layout_marginEnd="12dp"/>
+                    <RadioButton android:id="@+id/rbMedium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/diff_medium" android:checked="true" android:layout_marginEnd="12dp"/>
+                    <RadioButton android:id="@+id/rbHard" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/diff_hard"/>
                 </RadioGroup>
 
                 <GridLayout
@@ -172,7 +172,7 @@
                         android:layout_margin="4dp"
                         android:background="@drawable/bg_clash_button_purple"
                         android:backgroundTint="@null"
-                        android:text="MUNDO"
+                        android:text="@string/region_world"
                         android:textSize="12sp"
                         android:textStyle="bold"/>
                     
@@ -184,7 +184,7 @@
                         android:layout_margin="4dp"
                         android:background="@drawable/bg_clash_button_purple"
                         android:backgroundTint="@null"
-                        android:text="AMÉRICAS"
+                        android:text="@string/region_americas"
                         android:textSize="12sp"
                         android:textStyle="bold"/>
 
@@ -196,7 +196,7 @@
                         android:layout_margin="4dp"
                         android:background="@drawable/bg_clash_button_purple"
                         android:backgroundTint="@null"
-                        android:text="EUROPA"
+                        android:text="@string/region_europe"
                         android:textSize="12sp"
                         android:textStyle="bold"/>
 
@@ -208,7 +208,7 @@
                         android:layout_margin="4dp"
                         android:background="@drawable/bg_clash_button_purple"
                         android:backgroundTint="@null"
-                        android:text="ÁSIA"
+                        android:text="@string/region_asia"
                         android:textSize="12sp"
                         android:textStyle="bold"/>
 
@@ -220,7 +220,7 @@
                         android:layout_margin="4dp"
                         android:background="@drawable/bg_clash_button_purple"
                         android:backgroundTint="@null"
-                        android:text="ÁFRICA"
+                        android:text="@string/region_africa"
                         android:textSize="12sp"
                         android:textStyle="bold"/>
 
@@ -232,7 +232,7 @@
                         android:layout_margin="4dp"
                         android:background="@drawable/bg_clash_button_purple"
                         android:backgroundTint="@null"
-                        android:text="OCEANIA"
+                        android:text="@string/region_oceania"
                         android:textSize="12sp"
                         android:textStyle="bold"/>
                 </GridLayout>

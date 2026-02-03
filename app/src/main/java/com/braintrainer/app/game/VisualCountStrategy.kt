@@ -28,7 +28,7 @@ class VisualCountStrategy : GameStrategy {
         
         return GameQuestion(
             id = Random.nextInt(),
-            displayContent = "Quantas bolas de basquete?",
+            displayContent = "game_visual_question",
             flashItems = listOf(config),
             options = options.toList().shuffled(),
             answer = correct

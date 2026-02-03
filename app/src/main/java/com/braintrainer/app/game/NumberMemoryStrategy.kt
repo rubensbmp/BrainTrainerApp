@@ -37,7 +37,7 @@ class NumberMemoryStrategy : GameStrategy {
         
         return GameQuestion(
             id = Random.nextInt(),
-            displayContent = "Qual era o número?", // Shown AFTER flash
+            displayContent = "game_memory_question", // Shown AFTER flash
             flashItems = listOf(correct), // Shown DURING flash
             options = options.toList().shuffled(),
             answer = correct

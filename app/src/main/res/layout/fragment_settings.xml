@@ -122,7 +122,7 @@
         <com.braintrainer.app.ui.views.ClashTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Track"
+            android:text="@string/settings_track"
             android:textColor="#BBDEFB"
             android:layout_marginTop="8dp"/>
 

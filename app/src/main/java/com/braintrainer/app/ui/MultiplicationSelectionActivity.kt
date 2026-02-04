@@ -52,7 +52,7 @@ class MultiplicationSelectionActivity : AppCompatActivity() {
                 "TABLE_$table",
                 rounds,
                 0L,
-                true // isPractice
+                false // isPractice
             )
             finish()
         }
